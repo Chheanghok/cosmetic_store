@@ -47,6 +47,10 @@
                             <x-nav-link-vertical :href="route('coupons.index')" :active="request()->routeIs('coupons.*')">
                                 {{ __('Coupons') }}
                             </x-nav-link-vertical>
+
+                            <x-nav-link-vertical :href="route('admin.pages.index')" :active="request()->routeIs('admin.pages.*')">
+                                {{ __('Pages') }}
+                            </x-nav-link-vertical>
                         </div>
                     </div>
                 </aside>
@@ -73,6 +77,10 @@
 
                             <x-nav-link-vertical :href="route('coupons.index')" :active="request()->routeIs('coupons.*')">
                                 {{ __('Coupons') }}
+                            </x-nav-link-vertical>
+
+                            <x-nav-link-vertical :href="route('admin.pages.index')" :active="request()->routeIs('admin.pages.*')">
+                                {{ __('Pages') }}
                             </x-nav-link-vertical>
                         </div>
                     </div>

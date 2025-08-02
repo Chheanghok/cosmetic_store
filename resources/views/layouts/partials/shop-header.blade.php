@@ -9,9 +9,8 @@
 
             <div class="hidden md:flex items-center space-x-8">
                 <a href="{{ route('shop.index') }}" class="text-gray-600 hover:text-primary-500 font-semibold">Shop</a>
-                {{-- We can add category links here later --}}
-                <a href="#" class="text-gray-600 hover:text-primary-500 font-semibold">About Us</a>
-                <a href="#" class="text-gray-600 hover:text-primary-500 font-semibold">Contact</a>
+                <a href="{{ route('page.show', 'about-us') }}" class="text-gray-600 hover:text-primary-500 font-semibold">About Us</a>
+                <a href="{{ route('contact') }}" class="text-gray-600 hover:text-primary-500 font-semibold">Contact</a>
             </div>
 
             <div class="flex items-center space-x-4">

@@ -11,6 +11,8 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\PageController;
+use App\Models\Page;
 
 Route::get('/', [ShopController::class, 'home'])->name('home');
 
@@ -41,6 +43,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');
     Route::patch('/orders/{order}', [OrderController::class, 'updateStatus'])->name('admin.orders.update');
     Route::resource('/coupons', CouponController::class);
+    Route::get('/pages', [PageController::class, 'index'])->name('admin.pages.index');
+    Route::get('/pages/{page}/edit', [PageController::class, 'edit'])->name('admin.pages.edit');
+    Route::patch('/pages/{page}', [PageController::class, 'update'])->name('admin.pages.update');
 });
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
@@ -55,5 +60,11 @@ Route::get('/checkout', [CheckoutController::class, 'create'])->name('checkout.c
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::post('/cart/coupon', [CartController::class, 'applyCoupon'])->name('cart.coupon.apply');
 Route::delete('/cart/coupon', [CartController::class, 'removeCoupon'])->name('cart.coupon.remove');
+Route::get('/contact', [ShopController::class, 'contact'])->name('contact');
+Route::post('/contact', [ShopController::class, 'handleContactForm'])->name('contact.submit');
+
+Route::get('/p/{page:slug}', function (Page $page) {
+    return view('shop.page', compact('page'));
+})->name('page.show');
 
 require __DIR__.'/auth.php';

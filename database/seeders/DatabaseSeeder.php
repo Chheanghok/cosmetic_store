@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(AdminUserSeeder::class); // This line is correct
-
+        $this->call(PageSeeder::class);
+        
         // Make sure the test user factory call is removed or commented out.
     }
 }

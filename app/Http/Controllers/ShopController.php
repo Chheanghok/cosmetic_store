@@ -48,4 +48,23 @@ class ShopController extends Controller
 
         return view('home', compact('featuredProducts', 'newArrivals'));
     }
+
+    public function contact()
+    {
+        return view('shop.contact');
+    }
+
+    public function handleContactForm(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string|min:10',
+        ]);
+
+        // Here you could add logic to send an email in a real application
+        // Mail::to('your-email@example.com')->send(new ContactFormMail($request->all()));
+
+        return redirect()->back()->with('success', 'Thank you for your message! We will get back to you soon.');
+    }
 }
