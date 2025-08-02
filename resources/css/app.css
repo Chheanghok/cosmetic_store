@@ -1,0 +1,19 @@
+@import "choices.js/public/assets/styles/choices.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.choices__inner {
+  min-height: 0.5rem !important;
+  height: 2.6rem !important;
+  border-radius: 0.3rem !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+.choices__item {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
